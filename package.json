@@ -1,0 +1,19 @@
+{
+    "name": "UXD",
+    "version": "0.1.0",
+    "description": "Version by 29.01.14",
+    "private": true,
+    "devDependencies": {
+        "connect-livereload"    : ">=0.3.1",
+        "grunt-open"            : ">=0.2.2",
+        "grunt-contrib-stylus"  : ">=0.10.0",
+        "grunt-contrib-connect" : ">=0.5.0",
+        "grunt-autoprefixer"    : ">=0.4.0",
+        "grunt-contrib-compass" : ">=0.2.0",
+        "grunt-contrib-watch"   : ">=0.4.4",
+        "grunt-include-replace" : ">=0.1.0",
+        "grunt-contrib-clean"   : ">=0.4.0",
+        "grunt-contrib-connect" : ">=0.4.0",
+        "grunt": ">=0.4.1"
+    }
+}

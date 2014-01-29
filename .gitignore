@@ -1,0 +1,9 @@
+.sass-cache
+temp
+node_modules
+components
+design
+build
+.idea
+*.sublime-project
+*.sublime-workspace
