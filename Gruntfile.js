@@ -10,12 +10,24 @@ module.exports = function(grunt) {
         //Watcher
         watch: {
             block : {
-                files: '<%= config.blockSrc %>/*',
+                files: '<%= config.blockSrc %>/**',
                 tasks: ['stylus:blocks']
             },
             css: {
-                files: '<%= config.cssSrc %>/*',
-                tasks: ['stylus:common']
+                files: '<%= config.cssSrc %>/**',
+                tasks: ['stylus:css']
+            },
+            html: {
+                files: '<%= config.source %>/*.html',
+                tasks: ['copy:html']
+            },
+            js: {
+                files: '<%= config.jsSrc %>/**',
+                tasks: ['copy:js']
+            },
+            components: {
+                files: '<%= config.componentsSrc %>/**',
+                tasks: ['copy:components']
             }
         },
 
@@ -96,8 +108,25 @@ module.exports = function(grunt) {
             //Bower components copy
             components: {
                 files: [
-                    {expand: true, cwd: '<%= config.bowerSrc %>', src: ['**'], dest: '<%= config.bowerDest %>'}
+                    {expand: true, cwd: '<%= config.componentsSrc %>', src: ['**'], dest: '<%= config.componentsDest %>'}
                 ]
+            }
+        },
+
+        //Open browser
+        open : {
+            browser : {
+                path: 'http://localhost:<%= config.PORT %>'
+            }            
+        },
+
+        //Start server
+        connect : {
+            server : {
+                options: {
+                    port: '<%= config.PORT %>',
+                    keepalive : false
+                }
             }
         }
     });
@@ -107,5 +136,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-csso'); 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch'); 
-    grunt.registerTask('default', ['watch']);
+    grunt.loadNpmTasks('grunt-open');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.registerTask('default', ['open', 'connect', 'watch']);
 };

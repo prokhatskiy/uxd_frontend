@@ -1,39 +1,43 @@
 {
-	"description" : "This file includes main properties of project",
+	"description"    : "This file includes main properties of project",
 
-    "source"      : "source",
-    "_comment"    : "source folder",
+    "PORT"           : "666",
 
-    "dest"        : "build",
-    "_comment"    : "folder of destination",
+    "livereload"     : false,
 
-    "blockSrc" 	  : "source/blocks",
-    "_comment"    : "path to source folder with blocks",
+    "source"         : "source",
+    "_comment"       : "source folder",
 
-    "cssSrc"   	  : "source/css",
-    "_comment"    : "path to source folder with common styles",
+    "dest"           : "build",
+    "_comment"       : "folder of destination",
 
-    "jsSrc"    	  : "source/js",
-    "_comment"    : "path to source folder with javascript files",
+    "blockSrc" 	     : "source/blocks",
+    "_comment"       : "path to source folder with blocks",
 
-    "bowerSrc"    : "source/components",
-    "_comment"    : "path to source folder with bower components",
+    "cssSrc"   	     : "source/css",
+    "_comment"       : "path to source folder with common styles",
 
-    "cssDest"  	  : "build/css",
-    "_comment"    : "build folder for css",
+    "jsSrc"    	     : "source/js",
+    "_comment"       : "path to source folder with javascript files",
 
-    "jsDest"   	  : "build/js",
-    "_comment"    : "build folder for javascript",
+    "componentsSrc"  : "source/components",
+    "_comment"       : "path to source folder with bower components",
 
-    "bowerDest"   : "build/components",
-    "_comment"    : "build folder for bower components",
+    "cssDest"  	     : "build/css",
+    "_comment"       : "build folder for css",
 
-    "data"     	  : "data",
-    "_comment"    : "folder width data files",
+    "jsDest"   	     : "build/js",
+    "_comment"       : "build folder for javascript",
 
-    "linenos"     : false,
-    "_comment"    : "specifies if the generated CSS file should contain comments indicating the corresponding stylus line",
+    "componentsDest" : "build/components",
+    "_comment"       : "build folder for bower components",
+
+    "data"     	     : "data",
+    "_comment"       : "folder width data files",
+
+    "linenos"        : false,
+    "_comment"       : "specifies if the generated CSS file should contain comments indicating the corresponding stylus line",
 
     "browserSupport" : ["last 2 version", "ie 8", "ie9"],
-    "_comment"    : "specify browsers actual for your project (https://github.com/ai/autoprefixer#browsers)"
+    "_comment"       : "specify browsers actual for your project (https   ://github.com/ai/autoprefixer#browsers)"
 }
