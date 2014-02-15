@@ -11,23 +11,38 @@ module.exports = function(grunt) {
         watch: {
             block : {
                 files: '<%= config.blockSrc %>/**',
-                tasks: ['stylus:blocks']
+                tasks: ['stylus:blocks'],
+                options : {
+                    livereload: CONFIG.livereload
+                }                
             },
             css: {
                 files: '<%= config.cssSrc %>/**',
-                tasks: ['stylus:css']
+                tasks: ['stylus:css'],
+                options : {
+                    livereload: CONFIG.livereload
+                } 
             },
             html: {
                 files: '<%= config.source %>/*.html',
-                tasks: ['copy:html']
+                tasks: ['copy:html'],
+                options : {
+                    livereload: CONFIG.livereload
+                } 
             },
             js: {
                 files: '<%= config.jsSrc %>/**',
-                tasks: ['copy:js']
+                tasks: ['copy:js'],
+                options : {
+                    livereload: CONFIG.livereload
+                } 
             },
             components: {
                 files: '<%= config.componentsSrc %>/**',
-                tasks: ['copy:components']
+                tasks: ['copy:components'],
+                options : {
+                    livereload: CONFIG.livereload
+                } 
             }
         },
 
@@ -138,5 +153,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch'); 
     grunt.loadNpmTasks('grunt-open');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-livereload');
+
     grunt.registerTask('default', ['open', 'connect', 'watch']);
+    grunt.registerTask('min', ['csso:min']);
 };
