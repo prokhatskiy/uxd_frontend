@@ -1,16 +1,27 @@
 {
 	"description" : "This file includes main properties of project",
 
-	"linenos"     : false,
-
     "blockSrc" 	  : "source/blocks",
+    "_comment"    : "path to source folder with blocks",
+
     "cssSrc"   	  : "source/css",
+    "_comment"    : "path to source folder with common styles",
+
     "jsSrc"    	  : "source/js",
+    "_comment"    : "path to sourcce folder with javascript files",
+
     "cssDist"  	  : "build/css",
+    "_comment"    : "build folder for css",
+
     "jsDist"   	  : "build/js",
+    "_comment"    : "build folder for javascript",
+
     "data"     	  : "data",
+    "_comment"    : "folder width data files",
 
     "linenos"     : false,
+    "_comment"    : "specifies if the generated CSS file should contain comments indicating the corresponding stylus line",
 
-    "browserSupport" : ["last 2 version", "ie 8", "ie9"]
+    "browserSupport" : ["last 2 version", "ie 8", "ie9"],
+    "_comment"    : "specify browsers actual for your project (https://github.com/ai/autoprefixer#browsers)"
 }
