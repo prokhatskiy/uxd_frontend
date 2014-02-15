@@ -66,11 +66,21 @@ module.exports = function(grunt) {
                 src: '<%= config.cssDist %>/main.css',
                 dest: '<%= config.cssDist %>/main.css'
             }
+        },
+
+        //CSS minification
+        csso: {
+            min : {
+                files: {
+                    '<%= config.cssDist %>/min/styles.min.css': ['<%= config.cssDist %>/main.css' , '<%= config.cssDist %>/blocks.css']
+                }
+            }
         }
     });
   
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-csso'); 
     grunt.loadNpmTasks('grunt-contrib-watch'); 
     grunt.registerTask('default', ['watch']);
 };
