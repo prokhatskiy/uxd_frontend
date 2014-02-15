@@ -8,5 +8,9 @@
     "jsSrc"    	  : "source/js",
     "cssDist"  	  : "build/css",
     "jsDist"   	  : "build/js",
-    "data"     	  : "data"
+    "data"     	  : "data",
+
+    "linenos"     : false,
+
+    "browserSupport" : ["last 2 version", "ie 8", "ie9"]
 }

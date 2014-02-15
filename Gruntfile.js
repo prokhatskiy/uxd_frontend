@@ -1,8 +1,13 @@
 'use strict';
 
-module.exports = function(grunt) {      
+module.exports = function(grunt) {  
+    var CONFIG = grunt.file.readJSON('config/main.json');  
+
     grunt.initConfig({
-        config : grunt.file.readJSON('config/main.json'),
+        //Init grunt config
+        config : CONFIG,
+
+        //Watcher
         watch: {
             block : {
                 files: '<%= config.blockSrc %>/*',
@@ -13,8 +18,10 @@ module.exports = function(grunt) {
                 tasks: ['stylus:common']
             }
         },
+
+        //Stylus task
         stylus: {
-            block: {
+            blocks: {
                 options: {
                     linenos : '<%= config.linenos %>',
                     urlfunc: 'embedurl',
@@ -41,10 +48,29 @@ module.exports = function(grunt) {
                     '<%= config.cssDist %>/main.css' : '<%= config.cssSrc %>/main.styl'
                 }
             }
+        },
+
+        //Autoprefixer
+        autoprefixer: {
+            blocks : {
+                options: {
+                    browsers: CONFIG.browerSupport 
+                },
+                src: '<%= config.cssDist %>/blocks.css',
+                dest: '<%= config.cssDist %>/blocks.css'
+            },
+            css : {
+                options: {
+                    browsers: CONFIG.browerSupport 
+                },
+                src: '<%= config.cssDist %>/main.css',
+                dest: '<%= config.cssDist %>/main.css'
+            }
         }
     });
   
     grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-watch'); 
     grunt.registerTask('default', ['watch']);
 };
