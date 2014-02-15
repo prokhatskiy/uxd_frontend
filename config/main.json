@@ -1,0 +1,12 @@
+{
+	"description" : "This file includes main properties of project",
+
+	"linenos"     : false,
+
+    "blockSrc" 	  : "source/blocks",
+    "cssSrc"   	  : "source/css",
+    "jsSrc"    	  : "source/js",
+    "cssDist"  	  : "build/css",
+    "jsDist"   	  : "build/js",
+    "data"     	  : "data"
+}
