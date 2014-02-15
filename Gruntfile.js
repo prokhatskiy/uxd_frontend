@@ -79,6 +79,7 @@ module.exports = function(grunt) {
 
         //Copy files
         copy: {
+            //Main js copy
             js: {
                 files: [
                     {expand: true, cwd: '<%= config.jsSrc %>', src: ['**'], dest: '<%= config.jsDest %>'}
@@ -92,9 +93,10 @@ module.exports = function(grunt) {
                 ]
             },
 
+            //Bower components copy
             components: {
                 files: [
-                    {expand: true, cwd: '<%= config.bowerSrc %>', src: ['***'], dest: '<%= config.bowerDest %>'}
+                    {expand: true, cwd: '<%= config.bowerSrc %>', src: ['**'], dest: '<%= config.bowerDest %>'}
                 ]
             }
         }
