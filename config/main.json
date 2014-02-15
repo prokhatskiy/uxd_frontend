@@ -1,6 +1,12 @@
 {
 	"description" : "This file includes main properties of project",
 
+    "source"      : "source",
+    "_comment"    : "source folder",
+
+    "dest"        : "build",
+    "_comment"    : "folder of destination",
+
     "blockSrc" 	  : "source/blocks",
     "_comment"    : "path to source folder with blocks",
 
@@ -8,13 +14,19 @@
     "_comment"    : "path to source folder with common styles",
 
     "jsSrc"    	  : "source/js",
-    "_comment"    : "path to sourcce folder with javascript files",
+    "_comment"    : "path to source folder with javascript files",
 
-    "cssDist"  	  : "build/css",
+    "bowerSrc"    : "source/components",
+    "_comment"    : "path to source folder with bower components",
+
+    "cssDest"  	  : "build/css",
     "_comment"    : "build folder for css",
 
-    "jsDist"   	  : "build/js",
+    "jsDest"   	  : "build/js",
     "_comment"    : "build folder for javascript",
+
+    "bowerDest"   : "build/components",
+    "_comment"    : "build folder for bower components",
 
     "data"     	  : "data",
     "_comment"    : "folder width data files",

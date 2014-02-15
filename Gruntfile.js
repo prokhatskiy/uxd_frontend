@@ -32,7 +32,7 @@ module.exports = function(grunt) {
                     define : grunt.file.readJSON('config/stylusVars.json')
                 },
                 files : {
-                    '<%= config.cssDist %>/blocks.css': '<%= config.blockSrc %>/blocks.styl'
+                    '<%= config.cssDest %>/blocks.css': '<%= config.blockSrc %>/blocks.styl'
                 }
             },
             css: {
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                     define : grunt.file.readJSON('config/stylusVars.json')
                 },
                 files : {
-                    '<%= config.cssDist %>/main.css' : '<%= config.cssSrc %>/main.styl'
+                    '<%= config.cssDest %>/main.css' : '<%= config.cssSrc %>/main.styl'
                 }
             }
         },
@@ -56,15 +56,15 @@ module.exports = function(grunt) {
                 options: {
                     browsers: CONFIG.browerSupport 
                 },
-                src: '<%= config.cssDist %>/blocks.css',
-                dest: '<%= config.cssDist %>/blocks.css'
+                src: '<%= config.cssDest %>/blocks.css',
+                dest: '<%= config.cssDest %>/blocks.css'
             },
             css : {
                 options: {
                     browsers: CONFIG.browerSupport 
                 },
-                src: '<%= config.cssDist %>/main.css',
-                dest: '<%= config.cssDist %>/main.css'
+                src: '<%= config.cssDest %>/main.css',
+                dest: '<%= config.cssDest %>/main.css'
             }
         },
 
@@ -72,8 +72,30 @@ module.exports = function(grunt) {
         csso: {
             min : {
                 files: {
-                    '<%= config.cssDist %>/min/styles.min.css': ['<%= config.cssDist %>/main.css' , '<%= config.cssDist %>/blocks.css']
+                    '<%= config.cssDest %>/min/styles.min.css': ['<%= config.cssDest %>/main.css' , '<%= config.cssDest %>/blocks.css']
                 }
+            }
+        },
+
+        //Copy files
+        copy: {
+            js: {
+                files: [
+                    {expand: true, cwd: '<%= config.jsSrc %>', src: ['**'], dest: '<%= config.jsDest %>'}
+                ]
+            },
+
+            //Will be deleted
+            html: {
+                files: [
+                    {expand: true, cwd: '<%= config.source %>', src: ['*.html'], dest: '<%= config.dest %>'}
+                ]
+            },
+
+            components: {
+                files: [
+                    {expand: true, cwd: '<%= config.bowerSrc %>', src: ['***'], dest: '<%= config.bowerDest %>'}
+                ]
             }
         }
     });
@@ -81,6 +103,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-csso'); 
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch'); 
     grunt.registerTask('default', ['watch']);
 };

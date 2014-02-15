@@ -1,0 +1,23 @@
+{
+  "name": "UXD",
+  "version": "0.1",
+
+  "authors": [
+    "Prokhatskyi Artem <Artem_Prokhatskyi@epam.com>"
+  ],
+
+  "description": "Packages for UXD",
+  "main": "source/",
+  "license": "MIT",
+
+  "dependencies": {
+    "requirejs" : "~2.1.8",
+    "jquery" : "~2.0"
+  },
+
+  "ignore": [
+    "node_modules",
+    "source/components",
+    "build/components"
+  ]
+}
