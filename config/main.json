@@ -2,7 +2,7 @@
 	"description"    : "This file includes main properties of project",
 
     "core"           : "stylus",
-    "_comment"       : "preprocessor language",
+    "_comment"       : "preprocessor language. !!! CANNOT BE CHANGED !!!",
 
     "PORT"           : "666",
     "_comment"       : "define port for local server",

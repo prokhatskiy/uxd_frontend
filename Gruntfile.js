@@ -73,24 +73,6 @@ module.exports = function(grunt) {
             }
         },
 
-        //Compass task
-        compass: {          
-            blocks: {             
-                options: {                
-                    sassDir: '<%= config.blocksSrc %>',
-                    cssDir: '<%= config.blocksDest %>',
-                    environment: 'production'
-                }
-            },
-            css: {                      
-                options: {
-                    sassDir: '<%= config.cssSrc %>',
-                    cssDir: '<%= config.cssDest %>',
-                    environment: 'production'
-                }
-            }
-        },
-
         //Autoprefixer
         autoprefixer: {
             blocks : {
@@ -172,6 +154,16 @@ module.exports = function(grunt) {
                     keepalive : false
                 }
             }
+        },
+
+        //clean tasks
+        clean: {
+            all: ['<%= config.dest %>'],
+            css: ['<%= config.cssDest %>'],
+            html: ['<%= config.dest %>/*.html'],
+            js: ['<%= config.jsDest %>'],
+            fonts: ['<%= config.fontsDest %>'],
+            components: ['<%= config.componentsDest %>']
         }
     });
   
@@ -182,8 +174,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch'); 
     grunt.loadNpmTasks('grunt-open');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('default', ['open', 'connect', 'watch']);
+    grunt.registerTask('build', ['clean:all', CONFIG.core, 'copy']);
     grunt.registerTask('min', ['csso:min']);
+
+    grunt.registerTask('default', ['build', 'open', 'connect', 'watch']);
 };
