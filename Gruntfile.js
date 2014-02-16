@@ -13,11 +13,11 @@ module.exports = function(grunt) {
                 livereload: CONFIG.livereload
             }, 
             block : {
-                files: '<%= config.blockSrc %>/**',
+                files: '<%= config.source %>/<%= config.blockSrc %>/**',
                 tasks: ['<%= config.core %>:blocks']               
             },
             css: {
-                files: '<%= config.cssSrc %>/**',
+                files: '<%= config.source %>/<%= config.cssSrc %>/**',
                 tasks: ['<%= config.core %>:css'] 
             },
             html: {
@@ -25,20 +25,24 @@ module.exports = function(grunt) {
                 tasks: ['copy:html'] 
             },
             js: {
-                files: '<%= config.jsSrc %>/**',
+                files: '<%= config.source %>/<%= config.jsSrc %>/**',
                 tasks: ['copy:js']
             },
             components: {
-                files: '<%= config.componentsSrc %>/**',
+                files: '<%= config.source %>/<%= config.componentsSrc %>/**',
                 tasks: ['copy:components']
             },
             img : {
-                files: '<%= config.imgSrc %>/**',
+                files: '<%= config.source %>/<%= config.imgSrc %>/**',
                 tasks: ['copy:img']
             },
             fonts : {
-                files: '<%= config.fontsSrc %>/**',
+                files: '<%= config.source %>/<%= config.fontsSrc %>/**',
                 tasks: ['copy:fonts']
+            },
+            data : {
+                files: '<%= config.data %>/*.json',
+                tasks: ['jsonlint:all', 'concat:data', 'jsonlint:result']
             }
         },
 
@@ -55,7 +59,7 @@ module.exports = function(grunt) {
                     define : grunt.file.readJSON('config/stylusVars.json')
                 },
                 files : {
-                    '<%= config.cssDest %>/blocks.css': '<%= config.blockSrc %>/blocks.styl'
+                    '<%= config.dest %>/<%= config.cssDest %>/blocks.css': '<%= config.source %>/<%= config.blockSrc %>/blocks.styl'
                 }
             },
             css: {
@@ -68,7 +72,7 @@ module.exports = function(grunt) {
                     define : grunt.file.readJSON('config/stylusVars.json')
                 },
                 files : {
-                    '<%= config.cssDest %>/main.css' : '<%= config.cssSrc %>/main.styl'
+                    '<%= config.dest %>/<%= config.cssDest %>/main.css' : '<%= config.source %>/<%= config.cssSrc %>/main.styl'
                 }
             }
         },
@@ -79,15 +83,15 @@ module.exports = function(grunt) {
                 options: {
                     browsers: CONFIG.browerSupport 
                 },
-                src: '<%= config.cssDest %>/blocks.css',
-                dest: '<%= config.cssDest %>/blocks.css'
+                src: '<%= config.dest %>/<%= config.cssDest %>/blocks.css',
+                dest: '<%= config.dest %>/<%= config.cssDest %>/blocks.css'
             },
             css : {
                 options: {
                     browsers: CONFIG.browerSupport 
                 },
-                src: '<%= config.cssDest %>/main.css',
-                dest: '<%= config.cssDest %>/main.css'
+                src: '<%= config.dest %>/<%= config.cssDest %>/main.css',
+                dest: '<%= config.dest %>/<%= config.cssDest %>/main.css'
             }
         },
 
@@ -95,7 +99,7 @@ module.exports = function(grunt) {
         csso: {
             min : {
                 files: {
-                    '<%= config.cssDest %>/min/styles.min.css': ['<%= config.cssDest %>/main.css' , '<%= config.cssDest %>/blocks.css']
+                    '<%= config.dest %>/<%= config.cssDest %>/min/styles.min.css': ['<%= config.dest %>/<%= config.cssDest %>/main.css' , '<%= config.dest %>/<%= config.cssDest %>/blocks.css']
                 }
             }
         },
@@ -105,7 +109,7 @@ module.exports = function(grunt) {
             //Main js copy
             js: {
                 files: [
-                    {expand: true, cwd: '<%= config.jsSrc %>', src: ['**'], dest: '<%= config.jsDest %>'}
+                    {expand: true, cwd: '<%= config.source %>/<%= config.jsSrc %>', src: ['**'], dest: '<%= config.dest %>/<%= config.jsDest %>'}
                 ]
             },
 
@@ -119,14 +123,14 @@ module.exports = function(grunt) {
             //Bower components copy
             components: {
                 files: [
-                    {expand: true, cwd: '<%= config.componentsSrc %>', src: ['**'], dest: '<%= config.componentsDest %>'}
+                    {expand: true, cwd: '<%= config.source %>/<%= config.componentsSrc %>', src: ['**'], dest: '<%= config.dest %>/<%= config.componentsDest %>'}
                 ]
             },
 
             //images copy
             img: {
                 files: [
-                    {expand: true, cwd: '<%= config.imgSrc %>', src: ['**'], dest: '<%= config.imgDest %>'}
+                    {expand: true, cwd: '<%= config.source %>/<%= config.imgSrc %>', src: ['**'], dest: '<%= config.dest %>/<%= config.imgDest %>'}
                 ]
             },
 
@@ -134,7 +138,7 @@ module.exports = function(grunt) {
             //fonts copy
             fonts: {
                 files: [
-                    {expand: true, cwd: '<%= config.fontsSrc %>', src: ['**'], dest: '<%= config.fontsDest %>'}
+                    {expand: true, cwd: '<%= config.source %><%= config.fontsSrc %>', src: ['**'], dest: '<%= config.dest %>/<%= config.fontsDest %>'}
                 ]
             },
         },
@@ -158,12 +162,40 @@ module.exports = function(grunt) {
 
         //clean tasks
         clean: {
-            all: ['<%= config.dest %>'],
-            css: ['<%= config.cssDest %>'],
-            html: ['<%= config.dest %>/*.html'],
-            js: ['<%= config.jsDest %>'],
-            fonts: ['<%= config.fontsDest %>'],
-            components: ['<%= config.componentsDest %>']
+            all: ['<%= config.dest %>', '<%= config.temp %>'],
+            css: ['<%= config.dest %>/<%= config.cssDest %>'],
+            html: ['<%= config.dest %>/<%= config.dest %>/*.html'],
+            js: ['<%= config.dest %>/<%= config.jsDest %>'],
+            fonts: ['<%= config.dest %>/<%= config.fontsDest %>'],
+            components: ['<%= config.dest %>/<%= config.componentsDest %>'],
+            temp : ['<%= config.temp %>']
+        },
+
+        //files concatinations
+        concat : {
+            options : {
+                banner : '{\n',
+                footer : '\n}',
+                separator : ',\n',
+                process : function(src, filepath) {
+                    var filename = filepath.split('/')[filepath.split('/').length - 1].split('.json')[0];
+                    return '"filename"' + ' : ' + src;
+                }
+            },
+            data : {
+                src: ['<%= config.data %>/*.json'],
+                dest: '<%= config.temp %>/data.json',
+            }
+        },
+
+        //jsonlint
+        jsonlint: {
+            all: {
+                src: [ '<%= config.data %>/*.json' ]
+            },
+            result: {
+                src: [ '<%= config.data %>/data.json' ]
+            }
         }
     });
   
@@ -175,6 +207,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-open');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-jsonlint');
 
     grunt.registerTask('build', ['clean:all', CONFIG.core, 'copy']);
     grunt.registerTask('min', ['csso:min']);

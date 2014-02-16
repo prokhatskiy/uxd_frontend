@@ -16,41 +16,44 @@
     "dest"           : "build",
     "_comment"       : "folder of destination",
 
-    "blockSrc" 	     : "source/blocks",
+    "temp"           : ".tmp",
+    "_comment"       : "folder for temporary files",
+
+    "blockSrc" 	     : "blocks",
     "_comment"       : "path to source folder with blocks",
 
-    "cssSrc"   	     : "source/css",
+    "cssSrc"   	     : "css",
     "_comment"       : "path to source folder with common styles",
 
-    "jsSrc"    	     : "source/js",
+    "jsSrc"    	     : "js",
     "_comment"       : "path to source folder with javascript files",
 
-    "componentsSrc"  : "source/components",
+    "componentsSrc"  : "components",
     "_comment"       : "path to source folder with bower components",
 
-    "imgSrc"         : "source/img",
+    "imgSrc"         : "img",
     "_comment"       : "path to source folder with images",
 
-    "fontsSrc"       : "source/fonts",
+    "fontsSrc"       : "fonts",
     "_comment"       : "path to source folder with fonts",
 
-    "cssDest"  	     : "build/css",
+    "cssDest"  	     : "css",
     "_comment"       : "build folder for css",
 
-    "jsDest"   	     : "build/js",
+    "jsDest"   	     : "js",
     "_comment"       : "build folder for javascript",
 
-    "componentsDest" : "build/components",
+    "componentsDest" : "components",
     "_comment"       : "build folder for bower components",
 
-    "imgDest"        : "build/img",
+    "imgDest"        : "img",
     "_comment"       : "build folder for images",
 
-    "fontsDest"      : "build/fonts",
+    "fontsDest"      : "fonts",
     "_comment"       : "build folder for fonts",
 
     "data"     	     : "data",
-    "_comment"       : "folder width data files",
+    "_comment"       : "folder with data files",
 
     "linenos"        : false,
     "_comment"       : "specifies if the generated CSS file should contain comments indicating the corresponding stylus line",

@@ -1,5 +1,6 @@
 .sass-cache
 temp
+.tmp
 node_modules
 source/components
 design
