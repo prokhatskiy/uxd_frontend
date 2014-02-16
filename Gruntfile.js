@@ -9,40 +9,36 @@ module.exports = function(grunt) {
 
         //Watcher
         watch: {
+            options : {
+                livereload: CONFIG.livereload
+            }, 
             block : {
                 files: '<%= config.blockSrc %>/**',
-                tasks: ['stylus:blocks'],
-                options : {
-                    livereload: CONFIG.livereload
-                }                
+                tasks: ['<%= config.core %>:blocks']               
             },
             css: {
                 files: '<%= config.cssSrc %>/**',
-                tasks: ['stylus:css'],
-                options : {
-                    livereload: CONFIG.livereload
-                } 
+                tasks: ['<%= config.core %>:css'] 
             },
             html: {
                 files: '<%= config.source %>/*.html',
-                tasks: ['copy:html'],
-                options : {
-                    livereload: CONFIG.livereload
-                } 
+                tasks: ['copy:html'] 
             },
             js: {
                 files: '<%= config.jsSrc %>/**',
-                tasks: ['copy:js'],
-                options : {
-                    livereload: CONFIG.livereload
-                } 
+                tasks: ['copy:js']
             },
             components: {
                 files: '<%= config.componentsSrc %>/**',
-                tasks: ['copy:components'],
-                options : {
-                    livereload: CONFIG.livereload
-                } 
+                tasks: ['copy:components']
+            },
+            img : {
+                files: '<%= config.imgSrc %>/**',
+                tasks: ['copy:img']
+            },
+            fonts : {
+                files: '<%= config.fontsSrc %>/**',
+                tasks: ['copy:fonts']
             }
         },
 
@@ -73,6 +69,24 @@ module.exports = function(grunt) {
                 },
                 files : {
                     '<%= config.cssDest %>/main.css' : '<%= config.cssSrc %>/main.styl'
+                }
+            }
+        },
+
+        //Compass task
+        compass: {          
+            blocks: {             
+                options: {                
+                    sassDir: '<%= config.blocksSrc %>',
+                    cssDir: '<%= config.blocksDest %>',
+                    environment: 'production'
+                }
+            },
+            css: {                      
+                options: {
+                    sassDir: '<%= config.cssSrc %>',
+                    cssDir: '<%= config.cssDest %>',
+                    environment: 'production'
                 }
             }
         },
@@ -125,7 +139,22 @@ module.exports = function(grunt) {
                 files: [
                     {expand: true, cwd: '<%= config.componentsSrc %>', src: ['**'], dest: '<%= config.componentsDest %>'}
                 ]
-            }
+            },
+
+            //images copy
+            img: {
+                files: [
+                    {expand: true, cwd: '<%= config.imgSrc %>', src: ['**'], dest: '<%= config.imgDest %>'}
+                ]
+            },
+
+
+            //fonts copy
+            fonts: {
+                files: [
+                    {expand: true, cwd: '<%= config.fontsSrc %>', src: ['**'], dest: '<%= config.fontsDest %>'}
+                ]
+            },
         },
 
         //Open browser
@@ -153,7 +182,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch'); 
     grunt.loadNpmTasks('grunt-open');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-livereload');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     grunt.registerTask('default', ['open', 'connect', 'watch']);
     grunt.registerTask('min', ['csso:min']);

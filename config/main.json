@@ -1,9 +1,14 @@
 {
 	"description"    : "This file includes main properties of project",
 
+    "core"           : "stylus",
+    "_comment"       : "preprocessor language",
+
     "PORT"           : "666",
+    "_comment"       : "define port for local server",
 
     "livereload"     : false,
+    "_comment"       : "run livereload",
 
     "source"         : "source",
     "_comment"       : "source folder",
@@ -23,6 +28,12 @@
     "componentsSrc"  : "source/components",
     "_comment"       : "path to source folder with bower components",
 
+    "imgSrc"         : "source/img",
+    "_comment"       : "path to source folder with images",
+
+    "fontsSrc"       : "source/fonts",
+    "_comment"       : "path to source folder with fonts",
+
     "cssDest"  	     : "build/css",
     "_comment"       : "build folder for css",
 
@@ -31,6 +42,12 @@
 
     "componentsDest" : "build/components",
     "_comment"       : "build folder for bower components",
+
+    "imgDest"        : "build/img",
+    "_comment"       : "build folder for images",
+
+    "fontsDest"      : "build/fonts",
+    "_comment"       : "build folder for fonts",
 
     "data"     	     : "data",
     "_comment"       : "folder width data files",
