@@ -16,6 +16,9 @@
     "dest"           : "build",
     "_comment"       : "folder of destination",
 
+    "layouts"        : "layouts",
+    "_comment"       : "folder for templates",
+
     "temp"           : ".tmp",
     "_comment"       : "folder for temporary files",
 

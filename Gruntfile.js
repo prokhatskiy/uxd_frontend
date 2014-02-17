@@ -21,8 +21,8 @@ module.exports = function(grunt) {
                 tasks: ['<%= config.core %>:css'] 
             },
             html: {
-                files: '<%= config.source %>/*.html',
-                tasks: ['copy:html'] 
+                files: ['<%= config.source %>/<%= config.layouts %>/*.hbs', '<%= config.source %>/*.hbs', '<%= config.data %>/*.json', 'config/templates_vars.json'],
+                tasks: ['render'] 
             },
             js: {
                 files: '<%= config.source %>/<%= config.jsSrc %>/**',
@@ -39,10 +39,6 @@ module.exports = function(grunt) {
             fonts : {
                 files: '<%= config.source %>/<%= config.fontsSrc %>/**',
                 tasks: ['copy:fonts']
-            },
-            data : {
-                files: '<%= config.data %>/*.json',
-                tasks: ['jsonlint:all', 'concat:data', 'jsonlint:result']
             }
         },
 
@@ -56,7 +52,7 @@ module.exports = function(grunt) {
                         '../css/variables/variables',    
                         '../css/mixins/mixins'
                     ],
-                    define : grunt.file.readJSON('config/stylusVars.json')
+                    define : grunt.file.readJSON('config/stylus_vars.json')
                 },
                 files : {
                     '<%= config.dest %>/<%= config.cssDest %>/blocks.css': '<%= config.source %>/<%= config.blockSrc %>/blocks.styl'
@@ -69,7 +65,7 @@ module.exports = function(grunt) {
                         'variables/variables',    
                         'mixins/mixins'
                     ],
-                    define : grunt.file.readJSON('config/stylusVars.json')
+                    define : grunt.file.readJSON('config/stylus_vars.json')
                 },
                 files : {
                     '<%= config.dest %>/<%= config.cssDest %>/main.css' : '<%= config.source %>/<%= config.cssSrc %>/main.styl'
@@ -116,7 +112,7 @@ module.exports = function(grunt) {
             //Will be deleted
             html: {
                 files: [
-                    {expand: true, cwd: '<%= config.source %>', src: ['*.html'], dest: '<%= config.dest %>'}
+                    {expand: true, cwd: '<%= config.temp %>/<%= config.source %>', src: ['*.html'], dest: '<%= config.dest %>'}
                 ]
             },
 
@@ -164,11 +160,12 @@ module.exports = function(grunt) {
         clean: {
             all: ['<%= config.dest %>', '<%= config.temp %>'],
             css: ['<%= config.dest %>/<%= config.cssDest %>'],
-            html: ['<%= config.dest %>/<%= config.dest %>/*.html'],
+            html: ['<%= config.dest %>/*.html'],
             js: ['<%= config.dest %>/<%= config.jsDest %>'],
             fonts: ['<%= config.dest %>/<%= config.fontsDest %>'],
             components: ['<%= config.dest %>/<%= config.componentsDest %>'],
-            temp : ['<%= config.temp %>']
+            temp : ['<%= config.temp %>'],
+            render : ['<%= config.temp %>/<%= config.source %>/*.html']
         },
 
         //files concatinations
@@ -194,7 +191,25 @@ module.exports = function(grunt) {
                 src: [ '<%= config.data %>/*.json' ]
             },
             result: {
-                src: [ '<%= config.data %>/data.json' ]
+                src: [ '<%= config.temp %>/data.json' ]
+            }
+        },
+
+        //template engine
+        assemble: {
+            options: {
+                assets: 'assets',
+                partials: ['<%= config.source %>/<%= config.blocks %>/**/*.hbs'],
+                data: ['<%= config.data %>/*.json', 'config/templates_vars.json'],
+                layoutdir: '<%= config.source %>/<%= config.layouts %>',
+                layout: 'default_layout.hbs' 
+            },
+            pages: {
+                options: {
+                    layout: 'default_layout.hbs' 
+                },
+                src: ['<%= config.source %>/*.hbs'],
+                dest: '<%= config.temp %>/'
             }
         }
     });
@@ -209,9 +224,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-jsonlint');
+    grunt.loadNpmTasks('assemble');
 
-    grunt.registerTask('build', ['clean:all', CONFIG.core, 'copy']);
+    grunt.registerTask('build', ['clean:all', 'render', CONFIG.core, 'copy']);
     grunt.registerTask('min', ['csso:min']);
+    grunt.registerTask('render', ['jsonlint:all', 'clean:render', 'assemble', 'copy:html']);
 
     grunt.registerTask('default', ['build', 'open', 'connect', 'watch']);
 };
