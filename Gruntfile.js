@@ -109,17 +109,16 @@ module.exports = function(grunt) {
                 ]
             },
 
-            //Will be deleted
-            html: {
-                files: [
-                    {expand: true, cwd: '<%= config.temp %>/<%= config.source %>', src: ['*.html'], dest: '<%= config.dest %>'}
-                ]
-            },
-
             //Bower components copy
             components: {
                 files: [
                     {expand: true, cwd: '<%= config.source %>/<%= config.componentsSrc %>', src: ['**'], dest: '<%= config.dest %>/<%= config.componentsDest %>'}
+                ]
+            },
+
+            html : {
+                files: [
+                    {expand: true, cwd: '<%= config.temp %>/<%= config.source %>/', src: ['*.html'], dest: '<%= config.dest %>/'}
                 ]
             },
 
@@ -142,7 +141,7 @@ module.exports = function(grunt) {
         //Open browser
         open : {
             browser : {
-                path: 'http://localhost:<%= config.PORT %>'
+                path: 'http://localhost:<%= config.PORT %>/build'
             }            
         },
 
@@ -169,19 +168,23 @@ module.exports = function(grunt) {
         },
 
         //files concatinations
-        concat : {
-            options : {
-                banner : '{\n',
-                footer : '\n}',
-                separator : ',\n',
-                process : function(src, filepath) {
-                    var filename = filepath.split('/')[filepath.split('/').length - 1].split('.json')[0];
-                    return '"filename"' + ' : ' + src;
-                }
-            },
+        concat : {            
             data : {
+                options : {
+                    banner : '{\n',
+                    footer : '\n}',
+                    separator : ',\n',
+                    process : function(src, filepath) {
+                        var filename = filepath.split('/')[filepath.split('/').length - 1].split('.json')[0];
+                        return '"filename"' + ' : ' + src;
+                    }
+                },
                 src: ['<%= config.data %>/*.json'],
                 dest: '<%= config.temp %>/data.json',
+            },
+            css : {
+                src : ['<%= config.dest %>/<%= config.cssDest %>/main.css', '<%= config.dest %>/<%= config.cssDest %>/blocks.css'],
+                dest : '<%= config.dest %>/<%= config.cssDest %>/styles.css'
             }
         },
 
@@ -211,6 +214,20 @@ module.exports = function(grunt) {
                 src: ['<%= config.source %>/*.hbs'],
                 dest: '<%= config.temp %>/'
             }
+        },
+
+        //make pretty html code
+        prettify: {
+            options: {
+                "indent": 2
+            },
+            all: {
+                expand: true,
+                cwd: '',
+                ext: '.html',
+                src: ['<%= config.temp %>/<%= config.source %>/*.html'],
+                dest: ''
+            } 
         }
     });
   
@@ -218,17 +235,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-csso'); 
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch'); 
     grunt.loadNpmTasks('grunt-open');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-jsonlint');
     grunt.loadNpmTasks('assemble');
+    grunt.loadNpmTasks('grunt-prettify');
 
-    grunt.registerTask('build', ['clean:all', 'render', CONFIG.core, 'copy']);
-    grunt.registerTask('min', ['csso:min']);
-    grunt.registerTask('render', ['jsonlint:all', 'clean:render', 'assemble', 'copy:html']);
+    grunt.registerTask('build', ['clean:all', 'render', CONFIG.core, 'concat:css', 'copy']);
+    grunt.registerTask('render', ['jsonlint:all', 'clean:render', 'assemble', 'prettify', 'copy:html']);
 
     grunt.registerTask('default', ['build', 'open', 'connect', 'watch']);
 };
