@@ -16,6 +16,7 @@
         "grunt-contrib-concat" : "~0.3.0",
         "grunt-jsonlint" : "~1.0.4",
         "grunt-prettify" : "~0.3.4",
-        "assemble" : "~0.4.17"
+        "assemble" : "~0.4.17",
+        "grunt-sitemap" : "~1.1.0"
     }
 }

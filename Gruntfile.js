@@ -243,6 +243,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jsonlint');
     grunt.loadNpmTasks('assemble');
     grunt.loadNpmTasks('grunt-prettify');
+    grunt.loadNpmTasks('grunt-sitemap');
 
     grunt.registerTask('build', ['clean:all', 'render', CONFIG.core, 'autoprefixer', 'concat:css', 'copy']);
     grunt.registerTask('render', ['jsonlint:all', 'clean:render', 'assemble', 'prettify', 'copy:html']);
