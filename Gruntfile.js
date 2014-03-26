@@ -244,7 +244,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('assemble');
     grunt.loadNpmTasks('grunt-prettify');
 
-    grunt.registerTask('build', ['clean:all', 'render', CONFIG.core, 'concat:css', 'copy']);
+    grunt.registerTask('build', ['clean:all', 'render', CONFIG.core, 'autoprefixer', 'concat:css', 'copy']);
     grunt.registerTask('render', ['jsonlint:all', 'clean:render', 'assemble', 'prettify', 'copy:html']);
 
     grunt.registerTask('default', ['build', 'open', 'connect', 'watch']);
