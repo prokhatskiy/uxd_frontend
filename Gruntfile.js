@@ -14,11 +14,11 @@ module.exports = function(grunt) {
             }, 
             block : {
                 files: '<%= config.source %>/<%= config.blockSrc %>/**',
-                tasks: ['<%= config.core %>:blocks']               
+                tasks: ['<%= config.core %>:blocks', 'concat:css']               
             },
             css: {
                 files: '<%= config.source %>/<%= config.cssSrc %>/**',
-                tasks: ['<%= config.core %>:css'] 
+                tasks: ['<%= config.core %>:css', 'concat:css'] 
             },
             html: {
                 files: ['<%= config.source %>/<%= config.layouts %>/*.hbs', '<%= config.source %>/*.hbs', '<%= config.data %>/*.json', 'config/templates_vars.json'],
