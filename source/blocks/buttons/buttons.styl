@@ -1,0 +1,52 @@
+button
+	&:focus
+		outline none
+.btn
+	border none
+	font-family HelveticaNeueLight
+	font-weight normal
+	font-style normal
+	
+	&-default
+		background-color #FFF
+		color $dark 
+		border-width 2px
+		border-style solid
+		border-color $grey
+	&-disable
+		background-color $grey
+	&-primary
+		background-color $blue
+	&-info
+		background-color $sky
+	&-inverse
+		background-color $dark
+	&-success
+		background-color $green
+	&-warning
+		background-color $yellow
+	&-dange
+		background-color $red
+	&-disable,&-primary, &-info, &-inverse, &-success, &-warning, &-dange
+		color #FFF
+
+	&-huge
+		width $btn-huge-w
+		height $btn-huge-h
+		font-size 36px
+	&-large
+		width $btn-large-w
+		height $btn-large-h
+		font-size 30px
+	&-regular
+		width $btn-regular-w
+		height $btn-regular-h
+		font-size 20px
+	&-small
+		width $btn-small-w
+		height $btn-small-h
+		font-size 17px
+	&-xsmall
+		width $btn-xsmall-w
+		height $btn-xsmall-h
+		font-size 14px

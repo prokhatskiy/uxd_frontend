@@ -133,7 +133,7 @@ module.exports = function(grunt) {
             //fonts copy
             fonts: {
                 files: [
-                    {expand: true, cwd: '<%= config.source %><%= config.fontsSrc %>', src: ['**'], dest: '<%= config.dest %>/<%= config.fontsDest %>'}
+                    {expand: true, cwd: '<%= config.source %>/<%= config.fontsSrc %>', src: ['**'], dest: '<%= config.dest %>/<%= config.fontsDest %>'}
                 ]
             },
         },
