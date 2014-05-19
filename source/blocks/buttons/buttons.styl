@@ -1,52 +1,97 @@
+@import "icons/icons"
 button
 	&:focus
 		outline none
+	&:hover
+		cursor pointer
+
 .btn
-	border none
+	border-width 2px
+	border-style solid
 	font-family "Helvetica Neue", Helvetica, Arial, sans-serif
 	font-weight normal
 	font-style normal
 	
 	&-default
 		background-color #FFF
-		color $dark 
-		border-width 2px
-		border-style solid
 		border-color $grey
+		color $dark
 	&-disable
 		background-color $grey
+		border-color $grey
 	&-primary
 		background-color $blue
+		border-color $blue
 	&-info
 		background-color $sky
+		border-color $sky
 	&-inverse
 		background-color $dark
+		border-color $dark
 	&-success
 		background-color $green
+		border-color $green
 	&-warning
 		background-color $yellow
+		border-color $yellow
 	&-dange
 		background-color $red
+		border-color $red
 	&-disable,&-primary, &-info, &-inverse, &-success, &-warning, &-dange
 		color #FFF
 
-	&-huge
+	/*&-huge
 		width $btn-huge-w
 		height $btn-huge-h
-		font-size 36px
+		font-size $font-size-2
 	&-large
 		width $btn-large-w
 		height $btn-large-h
-		font-size 30px
+		font-size $font-size-3
 	&-regular
 		width $btn-regular-w
 		height $btn-regular-h
-		font-size 20px
+		font-size $font-size-4
 	&-small
 		width $btn-small-w
 		height $btn-small-h
-		font-size 17px
+		font-size $font-size-5
 	&-xsmall
 		width $btn-xsmall-w
 		height $btn-xsmall-h
-		font-size 14px
+		font-size $font-size-6*/
+		
+	&-huge
+		font-size $font-size-2
+		padding 19px 47px
+	&-large
+		font-size $font-size-3
+		padding 17px 43px
+	&-regular
+		font-size $font-size-4
+		padding 12px 27px
+		max-height 50px
+	&-small
+		font-size $font-size-5
+		padding 9px 12px
+	&-xsmall
+		font-size $font-size-6
+		padding 6px 13px
+	
+	&-imgleft:before, &-imgright:after
+		display inline-table
+		vertical-align middle
+		content ""
+	&-imgleft:before
+			margin-right 20px
+	&-imgright:after
+			margin-left 20px
+	&-white-tw-ico
+		&:before, &:after
+			@extend .white-tw-ico
+	&-select-ico
+		&:before, &:after
+			@extend .chevron-right-ico
+	&-huge.btn-white-tw-ico
+			&:before, &:after
+				@extend .white-tw-ico-lg
