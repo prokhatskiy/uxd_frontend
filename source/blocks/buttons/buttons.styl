@@ -1,10 +1,23 @@
-@import "icons/icons"
+@import 'icons/icons';
+@import 'fonts/fonts';
+
+*
+	-webkit-box-sizing border-box
+	-moz-box-sizing border-box
+	box-sizing border-box
+	
 button
 	&:focus
 		outline none
 	&:hover
 		cursor pointer
-
+	&[disabled]
+		cursor not-allowed
+		pointer-events none
+		background-color $gray
+		border-color $gray
+		color #FFF
+		
 .btn
 	border-width 2px
 	border-style solid
@@ -14,11 +27,8 @@ button
 	
 	&-default
 		background-color #FFF
-		border-color $grey
+		border-color $gray
 		color $dark
-	&-disable
-		background-color $grey
-		border-color $grey
 	&-primary
 		background-color $blue
 		border-color $blue
@@ -37,7 +47,7 @@ button
 	&-dange
 		background-color $red
 		border-color $red
-	&-disable,&-primary, &-info, &-inverse, &-success, &-warning, &-dange
+	&-primary, &-info, &-inverse, &-success, &-warning, &-dange
 		color #FFF
 
 	/*&-huge
@@ -62,21 +72,25 @@ button
 		font-size $font-size-6*/
 		
 	&-huge
-		font-size $font-size-2
+		@extend h2
 		padding 19px 47px
+		height 84px
 	&-large
-		font-size $font-size-3
+		@extend h3
 		padding 17px 43px
+		height 66px
 	&-regular
-		font-size $font-size-4
+		@extend h4
 		padding 12px 27px
-		max-height 50px
+		height 50px
 	&-small
-		font-size $font-size-5
+		@extend h5
 		padding 9px 12px
+		height 40px
 	&-xsmall
-		font-size $font-size-6
+		@extend h6
 		padding 6px 13px
+		height 30px
 	
 	&-imgleft:before, &-imgright:after
 		display inline-table

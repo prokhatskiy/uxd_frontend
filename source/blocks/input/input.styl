@@ -1,0 +1,69 @@
+@import 'fonts/fonts';
+@import 'buttons/buttons';
+@import 'icons/icons';
+.input
+	display block
+	width 100%
+	@extend body
+	@extend .btn-small
+	background-image none
+	color $blue
+	border 2px solid $gray
+	&:focus
+		outline none
+		border 2px solid $sky
+		-webkit-box-shadow 0 0 1px $sky
+		box-shadow 0 0 1px $sky
+	&-group
+		position relative
+		display inline-block
+		width 100%
+		span
+			display block
+			position absolute
+			top 50%
+			right 15px
+			margin-top -9px
+		input::-webkit-input-placeholder
+			color $blue
+		input::-moz-placeholder
+			color $blue
+	&-success
+		.input
+			color $green
+			border 2px solid $green
+			&:focus
+				outline none 
+				border 2px solid $green
+				-webkit-box-shadow 0 0 1px $green
+				box-shadow 0 0 1px $green
+		input::-webkit-input-placeholder
+			color $green
+		input::-moz-placeholder
+			color $green
+	&-error
+		.input
+			color $red
+			border 2px solid $red
+			&:focus
+				outline none 
+				border 2px solid $red
+				-webkit-box-shadow 0 0 1px $red
+				box-shadow 0 0 1px $red
+		input::-webkit-input-placeholder
+			color $red
+		input::-moz-placeholder
+			color $red
+	&-disabled
+		.input
+			background #FFF
+			color $gray
+			&:focus
+				outline none 
+				border 2px solid $gray
+				-webkit-box-shadow none
+				box-shadow none
+		input::-webkit-input-placeholder
+			color $gray
+		input::-moz-placeholder
+			color $gray
