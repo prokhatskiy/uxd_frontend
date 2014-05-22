@@ -2,12 +2,12 @@
 >The project building framework for UXD-group
 
 ###Getting started###
-The project building process runs with a help of task manager [Grunt] (http://gruntjs.com/). Grunt and Grunt plugins are installed and managed via [npm] (https://www.npmjs.org/), the [Node.js] (http://nodejs.org/) package manager.  
+The project building process runs with help of a task manager [Grunt] (http://gruntjs.com/). Grunt and Grunt plugins are installed and managed via [npm] (https://www.npmjs.org/), the [Node.js] (http://nodejs.org/) package manager.  
 In order to get started, you need to install Grunt's command line interface (CLI) globally. (You may need to use sudo or run your command shell as Administrator to do this)
 ```
 npm install -g grunt-cli
 ```
-The job of the Grunt CLI is to run the version of Grunt which has been installed next to a <code>Gruntfile</code> in the appropriate project folder.
+The job of the Grunt CLI is to run the version of Grunt which has been installed next to a <code>Gruntfile</code> in the the project folder.
 
 ###Preparing a new project###
 To start building a new project, copy [uxd frontend] (https://github.com/prokhatskiy/uxd_frontend) repository files to your project’s folder. Change to the project's root directory at the command line and run
