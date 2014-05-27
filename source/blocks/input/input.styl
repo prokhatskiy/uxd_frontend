@@ -1,16 +1,13 @@
 .input
 	display block
 	width 100%
-	font-family "Helvetica Neue", Helvetica, Arial, sans-serif
-	font-size $font-size-5
-	line-height $line-height-5
-	padding 9px 12px
 	height 40px
+	padding 9px 12px
+	font-size $font-size-5
+	border 2px solid $gray
 	background-image none
 	color $blue
-	border 2px solid $gray
 	&:focus
-		outline none
 		border 2px solid $sky
 		-webkit-box-shadow 0 0 1px $sky
 		box-shadow 0 0 1px $sky
@@ -28,12 +25,11 @@
 			color $blue
 		input::-moz-placeholder
 			color $blue
-	&-success
+	&_success
 		.input
 			color $green
 			border 2px solid $green
 			&:focus
-				outline none 
 				border 2px solid $green
 				-webkit-box-shadow 0 0 1px $green
 				box-shadow 0 0 1px $green
@@ -41,12 +37,11 @@
 			color $green
 		input::-moz-placeholder
 			color $green
-	&-error
+	&_error
 		.input
 			color $red
 			border 2px solid $red
 			&:focus
-				outline none 
 				border 2px solid $red
 				-webkit-box-shadow 0 0 1px $red
 				box-shadow 0 0 1px $red
@@ -54,15 +49,10 @@
 			color $red
 		input::-moz-placeholder
 			color $red
-	&-disabled
+	&_disabled
 		.input
 			background #FFF
 			color $gray
-			&:focus
-				outline none 
-				border 2px solid $gray
-				-webkit-box-shadow none
-				box-shadow none
 		input::-webkit-input-placeholder
 			color $gray
 		input::-moz-placeholder

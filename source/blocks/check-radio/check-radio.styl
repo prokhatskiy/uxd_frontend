@@ -1,0 +1,47 @@
+.radio, .checkbox
+	position relative
+	display inline-block
+	margin 10px 15px 10px 0
+	label
+		min-height 20px
+	input
+		margin-right 15px
+	
+input[type="radio"] + span
+	position absolute
+	top 0
+	left 0
+	width 20px
+	height 20px
+	border 1px solid $dark
+	-webkit-border-radius 50%
+	border-radius 50%
+	background-color #FFF
+	cursor pointer
+input[type="radio"]:checked + span:after
+	position absolute
+	top 50%
+	left 50%
+	display block
+	width 10px
+	height 10px
+	margin-top -5px
+	margin-left -5px
+	-webkit-border-radius 50%
+	border-radius 50%
+	background-color $sky
+	content ''
+input[type="radio"][disabled] + span
+	border-color $gray
+	cursor default
+
+input[type="checkbox"] + span
+	@extend input[type="radio"] + span
+	-webkit-border-radius 0
+	border-radius 0
+input[type="checkbox"]:checked + span:after
+	@extend input[type="radio"]:checked + span:after
+	-webkit-border-radius 0
+	border-radius 0
+input[type="checkbox"][disabled] + span
+	@extend input[type="radio"][disabled] + span

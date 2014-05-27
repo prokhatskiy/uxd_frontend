@@ -1,15 +1,10 @@
-*
-	-webkit-box-sizing border-box
-	-moz-box-sizing border-box
-	box-sizing border-box
-	
 button
+	vertical-align middle
 	&:focus
 		outline none
 	&:hover
 		cursor pointer
 	&[disabled]
-		cursor not-allowed
 		pointer-events none
 		background-color $gray
 		border-color $gray
@@ -18,76 +13,61 @@ button
 .btn
 	border-width 2px
 	border-style solid
-	font-family "Helvetica Neue", Helvetica, Arial, sans-serif
-	font-weight normal
-	font-style normal
-	
-	&-default
-		background-color #FFF
-		border-color $gray
-		color $dark
-	&-primary
+	background-color #FFF
+	border-color $gray
+	color $dark
+		
+	&_primary
 		background-color $blue
 		border-color $blue
-	&-info
+	&_info
 		background-color $sky
 		border-color $sky
-	&-inverse
+	&_inverse
 		background-color $dark
 		border-color $dark
-	&-success
+	&_success
 		background-color $green
 		border-color $green
-	&-warning
+	&_warning
 		background-color $yellow
 		border-color $yellow
-	&-dange
+	&_dange
 		background-color $red
 		border-color $red
-	&-primary, &-info, &-inverse, &-success, &-warning, &-dange
+	&_primary, &_info, &_inverse, &_success, &_warning, &_dange
 		color #FFF
 		
-	&-huge
+	&_huge
 		font-size $font-size-2
 		line-height $line-height-2
 		padding 19px 47px
 		height 84px
-	&-large
+	&_large
 		font-size $font-size-3
 		line-height $line-height-3
 		padding 17px 43px
 		height 66px
-	&-regular
+	&_regular
 		font-size $font-size-4
 		line-height $line-height-4
 		padding 12px 27px
 		height 50px
-	&-small
+	&_small
 		font-size $font-size-5
 		line-height $line-height-5
 		padding 9px 12px
 		height 40px
-	&-xsmall
+	&_xsmall
 		font-size $font-size-6
 		line-height $line-height-6
 		padding 6px 13px
 		height 30px
-	
-	&-imgleft:before, &-imgright:after
-		display inline-table
-		vertical-align middle
-		content ""
-	&-imgleft:before
-			margin-right 20px
-	&-imgright:after
-			margin-left 20px
-	&-white-tw-ico
-		&:before, &:after
-			width 26px
-			height 21px
-			background url(../img/'White Tw.png') no-repeat
-	&-select-ico
-		&:before, &:after
-			width 12px
-			height 21px
-			background url(../img/'Right Chevron.png') no-repeat
+	&_imgleft
+		span.btn_icon
+			float left
+			margin-right 15px
+	&_imgright
+		span.btn_icon
+			float right
+			margin-left 15px

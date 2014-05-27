@@ -1,0 +1,42 @@
+{
+	"soc-icon": {
+		"dribble": {
+			"class": "soc-icon_dribbble"
+		},
+		"behance": {
+			"class": "soc-icon_behance"
+		},
+		"twitter": {
+			"class": "soc-icon_twitter"
+		},
+		"linkedin": {
+			"class": "soc-icon_linkedin"
+		},
+		"instagram": {
+			"class": "soc-icon_instagram"
+		},
+		"facebook": {
+			"class": "soc-icon_facebook"
+		}
+	},
+	"icon": {
+		"android": {
+			"class": "icon_android"
+		},
+		"apple": {
+			"class": "icon_apple"
+		},
+		"blogger": {
+			"class": "icon_blogger"
+		},
+		"chrome": {
+			"class": "icon_chrome"
+		},
+		"css3": {
+			"class": "icon_css3"
+		},
+		"delicious": {
+			"class": "icon_delicious"
+		}
+	}
+}

@@ -23,36 +23,95 @@
 			<div class="bfs__buttons__options">
 				<h1 class="green">BUTTONS</h1>
 				<h3 class="sky">Buttons Options</h3>
-				<button type="button" class="btn btn-regular btn-default">Default Button</button>
-				<button type="button" class="btn btn-regular" disabled="disabled">Disable Button</button>
-				<button type="button" class="btn btn-regular btn-primary">Primary Button</button>
-				<button type="button" class="btn btn-regular btn-info">Info Button</button>
-				<button type="button" class="btn btn-regular btn-inverse">Inverse Button</button>
-				<button type="button" class="btn btn-regular btn-success">Success Button</button>
-				<button type="button" class="btn btn-regular btn-warning">Warning Button</button>
-				<button type="button" class="btn btn-regular btn-dange">Dange Button</button>
+				
+				{{> buttons buttons.new }}
+
+
+				<button type="button" class="btn btn_regular">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Default Button</span>
+				</button>
+				<button type="button" class="btn btn_regular" disabled="disabled">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Disable Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_primary">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Primary Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_info">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Info Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_inverse">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Inverse Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_success">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Success Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_warning">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Warning Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_dange">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Dange Button</span>
+				</button>
 			</div>
 			<div class="bfs__buttons__sizes">
 				<h3 class="sky">Buttons Sizes</h3>
-				<button type="button" class="btn btn-huge btn-info">Huge Button</button>
-				<button type="button" class="btn btn-large btn-info">Large Button</button>
-				<button type="button" class="btn btn-regular btn-info">Regular Button</button>
-				<button type="button" class="btn btn-small btn-info">Small Button</button>
-				<button type="button" class="btn btn-xsmall btn-info">Very Small Button</button>
+				<button type="button" class="btn btn_huge btn_info">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Huge Button</span>
+				</button>
+				<button type="button" class="btn btn_large btn_info">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Large Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_info">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Regular Button</span>
+				</button>
+				<button type="button" class="btn btn_small btn_info">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Small Button</span>
+				</button>
+				<button type="button" class="btn btn_xsmall btn_info">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Very Small Button</span>
+				</button>
 			</div>
 			<div class="bfs__buttons__variants">
 				<h3 class="sky">Buttons Variants</h3>
-				<button type="button" class="btn btn-regular btn-warning">Drop Button</button>
-				<button type="button" class="btn btn-regular btn-success btn-imgleft btn-white-tw-ico">Drop Button</button>
-				<button type="button" class="btn btn-regular btn-primary btn-imgright btn-select-ico">Select Button</button>
-				<button type="button" class="btn btn-regular btn-info btn-imgright btn-white-tw-ico">Drop Button</button>
+				<button type="button" class="btn btn_regular btn_warning">
+					<span class="btn_icon"></span>
+					<span class="btn_text">Drop Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_success btn_imgleft">
+					<span class="btn_icon white-tw-icon"></span>
+					<span class="btn_text">Drop Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_primary btn_imgright">
+					<span class="btn_icon select-icon-right-white"></span>
+					<span class="btn_text">Select Button</span>
+				</button>
+				<button type="button" class="btn btn_regular btn_info btn_imgright">
+					<span class="btn_icon white-tw-icon"></span>
+					<span class="btn_text">Drop Button</span>	
+				</button>
 			</div>
 		</div>
 		<div class="bfs__check-radio-btns">
 			<h3 class="sky">Checkboxes and Radio-Buttons</h3>
-			<input type="radio" name="options_radio" value="option1">
-			<input type="radio" name="options_radio" value="option2">
-			<input type="radio" name="options_radio" value="option3">
+			<label class="radio"><input type="radio" name="options_radio" value="option1" checked><span></span>Radio is on</label>
+			<label class="radio"><input type="radio" name="options_radio" value="option2"><span></span>Radio is off</label>
+			<label class="radio"><input type="radio" name="options_radio" value="option3" disabled="disabled"><span></span>Radio is disabled</label>
+
+			<label class="checkbox"><input type="checkbox" name="check" value="value1" checked><span></span>Checkbox is on</label>
+			<label class="checkbox"><input type="checkbox" name="check" value="value2"><span></span>Checkbox is off</label>
+			<label class="checkbox"><input type="checkbox" name="check" value="value3" disabled="disabled"><span></span>Checkbox is disabled</label>
 		</div>
 	</div>
 	<div class="bfs__col bfs__col_2">
@@ -75,15 +134,15 @@
 			<div class="input-group">
 				<input type="text" placeholder="Enable Input" class="input">
 			</div>
-			<div class="input-group input-success">
+			<div class="input-group input_success">
 				<input type="text" placeholder="Success Input" class="input">
-				<span class="success-ico"></span>
+				<span class="success-icon"></span>
 			</div>
-			<div class="input-group input-error">
+			<div class="input-group input_error">
 				<input type="text" placeholder="Error Input" class="input">
-				<span class="error-ico"></span>
+				<span class="error-icon"></span>
 			</div>
-			<div class="input-group input-disabled">
+			<div class="input-group input_disabled">
 				<input type="text" value="Disabled Input" class="input" disabled>
 			</div>
 		</div>
@@ -92,72 +151,85 @@
 		<div class="bfs__icons">
 			<h2 class="green">ICONS</h1>
 			<h3 class="sky">Social Buttons</h3>
-			<div class="icon dribbble-ico"></div>
-			<div class="icon behance-ico"></div>
-			<div class="icon twitter-ico"></div>
-			<div class="icon linkedin-ico"></div>
-			<div class="icon instagram-ico"></div>
-			<div class="icon facebook-ico"></div>
+			{{> soc-icons icons.soc-icon.dribble }}
+			{{> soc-icons icons.soc-icon.behance }}
+			{{> soc-icons icons.soc-icon.twitter }}
+			{{> soc-icons icons.soc-icon.linkedin }}
+			{{> soc-icons icons.soc-icon.instagram }}
+			{{> soc-icons icons.soc-icon.facebook }}
 
 			<h3 class="sky">Additional Icons</h3>
-			<div class="icon-ad android-ico"></div>
-			<div class="icon-ad apple-ico"></div>
-			<div class="icon-ad blogger-ico"></div>
-			<div class="icon-ad chrome-ico"></div>
-			<div class="icon-ad css3-ico"></div>
-			<div class="icon-ad delicious-ico"></div>
-			<div class="icon-ad dropbox-ico"></div>
-			<div class="icon-ad flickr-ico"></div>
-			<div class="icon-ad forrst-ico"></div>
-			<div class="icon-ad google-plus-ico"></div>
-			<div class="icon-ad html5-ico"></div>
-			<div class="icon-ad ie-ico"></div>
-			<div class="icon-ad instagram-ico"></div>
-			<div class="icon-ad jquery-ico"></div>
-			<div class="icon-ad lastfm-ico"></div>
-			<div class="icon-ad mail-ico"></div>
-			<div class="icon-ad neil-orange-peel-ico"></div>
-			<div class="icon-ad picasa-ico"></div>
-			<div class="icon-ad pinterest-ico"></div>
-			<div class="icon-ad reddit-ico"></div>
-			<div class="icon-ad rss-ico"></div>
-			<div class="icon-ad safari-ico"></div>
-			<div class="icon-ad skype-ico"></div>
-			<div class="icon-ad soundcloud-ico"></div>
-			<div class="icon-ad treehouse-ico"></div>
-			<div class="icon-ad tumblr-ico"></div>
-			<div class="icon-ad vimeo-ico"></div>
-			<div class="icon-ad windows-ico"></div>
-			<div class="icon-ad wordpress-ico"></div>
-			<div class="icon-ad yahoo-ico"></div>
-			<div class="icon-ad youtube-ico"></div>
+			{{> icons icons.icon.android }}
+			{{> icons icons.icon.apple }}
+			{{> icons icons.icon.blogger }}
+			{{> icons icons.icon.chrome }}
+			{{> icons icons.icon.css3 }}
+			{{> icons icons.icon.delicious }}
+			<br/>
+			<div class="icon icon_android"></div>
+			<div class="icon icon_apple"></div>
+			<div class="icon icon_blogger"></div>
+			<div class="icon icon_chrome"></div>
+			<div class="icon icon_css3"></div>
+			<div class="icon icon_delicious"></div>
+			<div class="icon icon_dropbox"></div>
+			<div class="icon icon_flickr"></div>
+			<div class="icon icon_forrst"></div>
+			<div class="icon icon_google-plus"></div>
+			<div class="icon icon_html5"></div>
+			<div class="icon icon_ie"></div>
+			<div class="icon icon_instagram"></div>
+			<div class="icon icon_jquery"></div>
+			<div class="icon icon_lastfm"></div>
+			<div class="icon icon_mail"></div>
+			<div class="icon icon_neil-orange-peel"></div>
+			<div class="icon icon_picasa"></div>
+			<div class="icon icon_pinterest"></div>
+			<div class="icon icon_reddit"></div>
+			<div class="icon icon_rss"></div>
+			<div class="icon icon_safari"></div>
+			<div class="icon icon_skype"></div>
+			<div class="icon icon_soundcloud"></div>
+			<div class="icon icon_treehouse"></div>
+			<div class="icon icon_tumblr"></div>
+			<div class="icon icon_vimeo"></div>
+			<div class="icon icon_windows"></div>
+			<div class="icon icon_wordpress"></div>
+			<div class="icon icon_yahoo"></div>
+			<div class="icon icon_youtube"></div>
 
 			<h3 class="sky other-icons">Other Icons</h3>
-			<div class="arrow-down-ico"></div>
-			<div class="arrow-down-gray-ico"></div>
-			<div class="arrow-down-white-ico"></div>
-			<div class="blue-arrow-ico"></div>
-			<div class="gray-arrow-ico"></div>
+			<div class="select-icon-down"></div>
+			<div class="select-icon-down-gray"></div>
+			<div class="select-icon-down-white"></div>
+			<div class="select-icon-up"></div>
+			<div class="select-icon-up-gray"></div>
+			<div class="select-icon-up-white"></div>
+			<div class="select-icon-right"></div>
+			<div class="select-icon-right-gray"></div>
+			<div class="select-icon-right-white"></div>
+			<div class="blue-arrow-icon"></div>
+			<div class="gray-arrow-icon"></div>
 			<br/>
-			<div class="list-ico"></div>
-			<div class="cross-ico"></div>
-			<div class="information-ico"></div>
-			<div class="location-ico"></div>
-			<div class="bookmark-ico"></div>
-			<div class="calendar-act-ico"></div>
-			<div class="calendar-inact-ico"></div>
-			<div class="error-ico"></div>
-			<div class="success-ico"></div>
-			<div class="chevron-left-ico"></div>
-			<div class="chevron-right-ico"></div>
-			<div class="play-ico"></div>
-			<div class="refresh-ico"></div>
-			<div class="search-ico"></div>
-			<div class="settings-ico"></div>
-			<div class="star-ico"></div>
-			<div class="tag-ico"></div>
-			<div class="tick-ico"></div>
-			<div class="white-tw-ico"></div>
+			<div class="list-icon"></div>
+			<div class="cross-icon"></div>
+			<div class="information-icon"></div>
+			<div class="location-icon"></div>
+			<div class="bookmark-icon"></div>
+			<div class="calendar-act-icon"></div>
+			<div class="calendar-inact-icon"></div>
+			<div class="error-icon"></div>
+			<div class="success-icon"></div>
+			<div class="chevron-left-icon"></div>
+			<div class="chevron-right-icon"></div>
+			<div class="play-icon"></div>
+			<div class="refresh-icon"></div>
+			<div class="search-icon"></div>
+			<div class="settings-icon"></div>
+			<div class="star-icon"></div>
+			<div class="tag-icon"></div>
+			<div class="tick-icon"></div>
+			<div class="white-tw-icon"></div>
 		</div>
 	</div>
 </div>
