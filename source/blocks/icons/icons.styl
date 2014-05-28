@@ -95,50 +95,115 @@
 		background-image url(../img/Yahoo!.png)
 	&_youtube
 		background-image url(../img/YouTube.png)
-	
+
 /* Other Icons */
-.select-icon
-	&-down
-		width 10px
-		height 10px
-		border-top 3px solid $dark
-		border-right 3px solid $dark
-		_transform(rotate(135deg))
-		&-gray
-			@extend .select-icon-down
-			border-top 3px solid $gray
-			border-right 3px solid $gray
-		&-white
-			@extend .select-icon-down
-			border-top 3px solid #FFF
-			border-right 3px solid #FFF
-	&-up
-		@extend .select-icon-down
-		_transform(rotate(-45deg))
-		&-gray
-			@extend .select-icon-down-gray
-			_transform(rotate(-45deg))
-		&-white
-			@extend .select-icon-down-white
-			_transform(rotate(-45deg))
-	&-right
-		@extend .select-icon-down
-		_transform(rotate(45deg))
-		&-gray
-			@extend .select-icon-down-gray
-			_transform(rotate(45deg))
-		&-white
-			@extend .select-icon-down-white
-			_transform(rotate(45deg))
-	&-left
-		@extend .select-icon-down
-		_transform(rotate(-135deg))
-		&-gray
-			@extend .select-icon-down-gray
-			_transform(rotate(-135deg))
-		&-white
-			@extend .select-icon-down-white
-			_transform(rotate(-135deg))
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon/icomoon.eot?i4epfg');
+	src:url('../fonts/icomoon/icomoon.eot?#iefixi4epfg') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.woff?i4epfg') format('woff'),
+		url('../fonts/icomoon/icomoon.ttf?i4epfg') format('truetype'),
+		url('../fonts/icomoon/icomoon.svg?i4epfg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="font-icon-"], [class*=" font-icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.font-icon-arrow-left:before {
+	content: "\e600";
+}
+.font-icon-arrow-down:before {
+	content: "\e601";
+}
+.font-icon-arrow-up:before {
+	content: "\e602";
+}
+.font-icon-arrow-right:before {
+	content: "\e603";
+}
+.font-icon-arrow-left2:before {
+	content: "\e604";
+}
+.font-icon-arrow-down2:before {
+	content: "\e605";
+}
+.font-icon-arrow-up2:before {
+	content: "\e606";
+}
+.font-icon-uniE607:before {
+	content: "\e607";
+}
+.font-icon-angle-left:before {
+	content: "\e608";
+}
+.font-icon-angle-right:before {
+	content: "\e609";
+}
+.font-icon-angle-up:before {
+	content: "\e60a";
+}
+.font-icon-angle-down:before {
+	content: "\e60b";
+}
+.font-icon-tag:before {
+	content: "\e60c";
+}
+.font-icon-location:before {
+	content: "\e60d";
+}
+.font-icon-calendar:before {
+	content: "\e60e";
+}
+.font-icon-user:before {
+	content: "\e60f";
+}
+.font-icon-search:before {
+	content: "\e610";
+}
+.font-icon-cog:before {
+	content: "\e611";
+}
+.font-icon-bookmark:before {
+	content: "\e612";
+}
+.font-icon-star:before {
+	content: "\e613";
+}
+.font-icon-cancel-circle:before {
+	content: "\e614";
+}
+.font-icon-checkmark-circle:before {
+	content: "\e615";
+}
+.font-icon-play:before {
+	content: "\e616";
+}
+.font-icon-loop:before {
+	content: "\e617";
+}
+.font-icon-checkbox-checked:before {
+	content: "\e618";
+}
+.font-icon-paragraph-justify:before {
+	content: "\e619";
+}
+.font-icon-twitter:before {
+	content: "\e61a";
+}
+
 .blue-arrow-icon
 	width 10px
 	height 5px

@@ -63,11 +63,21 @@ button
 		line-height $line-height-6
 		padding 6px 13px
 		height 30px
-	&_imgleft
-		span.btn_icon
-			float left
-			margin-right 15px
-	&_imgright
-		span.btn_icon
-			float right
-			margin-left 15px
+	&_imgleft:before
+		margin-right 15px
+		content "\e61a"
+	&_imgright:after
+		margin-left 15px
+		content "\e609"
+	&_imgleft:before, &_imgright:after
+		speak none
+		font-style normal
+		font-weight normal
+		font-variant normal
+		text-transform none
+		line-height 1
+		-webkit-font-smoothing antialiased
+		-moz-osx-font-smoothing grayscale
+		vertical-align middle
+		font-family 'icomoon'
+		font-size x-large
