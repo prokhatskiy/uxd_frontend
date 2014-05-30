@@ -7,10 +7,11 @@
 	border 2px solid $gray
 	background-image none
 	color $blue
+	_transition(box-shadow 0.3s ease-out 0s)
 	&:focus
 		border 2px solid $sky
-		-webkit-box-shadow 0 0 1px $sky
-		box-shadow 0 0 1px $sky
+		-webkit-box-shadow 0 0 2px $sky
+		box-shadow 0 0 2px $sky
 	&-group
 		position relative
 		display inline-block
@@ -31,8 +32,8 @@
 			border 2px solid $green
 			&:focus
 				border 2px solid $green
-				-webkit-box-shadow 0 0 1px $green
-				box-shadow 0 0 1px $green
+				-webkit-box-shadow 0 0 2px $green
+				box-shadow 0 0 2px $green
 		input::-webkit-input-placeholder
 			color $green
 		input::-moz-placeholder
@@ -43,8 +44,8 @@
 			border 2px solid $red
 			&:focus
 				border 2px solid $red
-				-webkit-box-shadow 0 0 1px $red
-				box-shadow 0 0 1px $red
+				-webkit-box-shadow 0 0 2px $red
+				box-shadow 0 0 2px $red
 		input::-webkit-input-placeholder
 			color $red
 		input::-moz-placeholder

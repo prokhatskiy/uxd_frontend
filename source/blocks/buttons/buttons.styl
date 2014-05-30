@@ -1,9 +1,13 @@
 button
 	vertical-align middle
+	_transition(opacity 0.2s ease 0s)
 	&:focus
 		outline none
 	&:hover
 		cursor pointer
+		opacity 0.8
+	&:active
+		opacity 1
 	&[disabled]
 		pointer-events none
 		background-color $gray
