@@ -20,26 +20,26 @@ npm install <module> --save-dev
 ```
 This will install <code>\<module></code> locally as well as automatically add it to the devDependencies section in the <code>package.json</code> file.
 
-The <code>Gruntfile.js</code> belongs in the root directory of the project next to the <code>package.json</code> and is used to configure or define tasks and load Grunt plugins. At the command line run
+The <code>Gruntfile.js</code> belongs in the project root directory next to the <code>package.json</code> and is used to configure or define tasks and load Grunt plugins. At the command line run
 ```
 grunt
 ```
 Running <code>grunt</code> at the command line will run the default tasks listed in <code>Gruntfile</code>. When running <code>grunt</code> command for the first time, the <code>build</code> task creates a <code>build</code> folder, where release project version will be located. Dev-version of the project is in the folder named <code>sourse</code>.
 ___
-####Assemble and Handlebars####
+####Assemble and Handlebars.js####
 The most popular site generator for Grunt.js, [Assemble] (http://assemble.io/), is used in this framework. It allows to carve HTML code up into reusable fragments ([partials] (http://assemble.io/docs/options-partials.html)) and to use [layouts] (http://assemble.io/docs/options-layout.html) to wrap your pages with commonly used elements and content.  Assemble uses [Handlebars.js] (http://handlebarsjs.com/) as a template system. Handlebars templates look like regular HTML, with embedded handlebars expressions. A handlebars expression is a <code>{{</code>, some contents, followed by a <code>}}</code>. In order to insert partials into your code you should use a symbol <code>></code>:
 ```
 {{> file_name }}
 ```
-There are two special directories in a <code>sourse</code> folder – <code>layout</code> and <code>blocks</code>. You can store templates of reusable site fragments (such as buttons, inputs, logo etc.) in a <code>blocks</code> directory. In a <code>layout</code> directory there is a <code>default_layout.hbs</code> file, where <code>\<DOCTYPE></code>, <code>\<html></code> tags and <code>\<head></code> section of all pages are described. Here you can also find a unique tag <code>{{> body }}</code>, which links the template <code>index.hbs</code>. Although layouts are optional, the <code>{{> body }}</code> tag is required for content to be pulled into a layout. You should also save all templates of commonly used page structures or sections in a <code>layout</code> directory.
+There are two special directories in a <code>sourse</code> folder – <code>layout</code> and <code>blocks</code>. You can store templates of reusable site fragments (such as buttons, inputs, logo etc.) in a <code>blocks</code> directory. In a <code>layout</code> directory there is a <code>default_layout.hbs</code> file, where <code>\<DOCTYPE></code>, <code>\<html></code> tags and <code>\<head></code> section of all pages are described. In this file you can also find a unique tag <code>{{> body }}</code>, which links the template <code>index.hbs</code>. Although layouts are optional, the <code>{{> body }}</code> tag is required for content to be pulled into a layout. You should also save all templates of commonly used page structures or sections in a <code>layout</code> folder.
 
-Handlebars.js allows us to use data, stored in JSON files. To refer to required variable you may use a simple path
+Handlebars.js allows us to use data, stored in JSON files. To refer to a required variable you may use a simple path
 ```
 {{variable}}
 ```
 or a nested path (with dot notation)
 ```
-{{filename.variable}}
+{{file_name.variable}}
 ```
 You can create new JSON files and save them in a <code>data</code> folder (in the project root), which is set as target for all templates in <code>Gruntfile</code>. Global variables are located in a <code>config</code> folder.
 ___
