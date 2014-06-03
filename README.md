@@ -2,7 +2,7 @@
 >The project building framework for UXD-group
 
 ###Getting started###
-The project building process runs with help of a task manager [Grunt] (http://gruntjs.com/). Grunt and Grunt plugins are installed and managed via [npm] (https://www.npmjs.org/), the [Node.js] (http://nodejs.org/) package manager.  
+To use the framework you need a task manager [Grunt] (http://gruntjs.com/) to be installed on your computer. Grunt and Grunt plugins are installed and managed via [npm] (https://www.npmjs.org/), the [Node.js] (http://nodejs.org/) package manager.  
 In order to get started, you need to install Grunt's command line interface (CLI) globally. (You may need to use sudo or run your command shell as Administrator to do this)
 ```
 npm install -g grunt-cli
