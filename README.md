@@ -9,6 +9,12 @@ npm install -g grunt-cli
 ```
 The job of the Grunt CLI is to run the version of Grunt which has been installed next to a <code>Gruntfile</code> in the the project folder.
 
+Also a package manager [Bower] (http://bower.io/) is requied. It's installed globally using npm:
+```
+npm install -g bower
+```
+Bower runs over [Git] (http://git-scm.com/), thus make sure that Git is installed too.
+
 ###Preparing a new project###
 To start building a new project, copy [uxd frontend] (https://github.com/prokhatskiy/uxd_frontend) repository files to your project’s folder. Change to the project's root directory at the command line and run
 ```
@@ -19,6 +25,12 @@ This will install the correct version of Grunt and the Grunt plugins listed as [
 npm install <module> --save-dev
 ```
 This will install <code>\<module></code> locally as well as automatically add it to the devDependencies section in the <code>package.json</code> file.
+
+To install all the packages, listed as dependencies in <code>bower.json</code> run
+```
+bower install
+```
+The path for installation is set in .bowerrc
 
 The <code>Gruntfile.js</code> belongs in the project root directory next to the <code>package.json</code> and is used to configure or define tasks and load Grunt plugins. At the command line run
 ```
