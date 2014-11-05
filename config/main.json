@@ -2,65 +2,45 @@
 	"description"    : "This file includes main properties of project",
 
     "core"           : "stylus",
-    "_comment"       : "preprocessor language. !!! CANNOT BE CHANGED !!!",
+    "_comment"       : "!!! CANNOT BE CHANGED !!!",
 
-    "PORT"           : "666",
-    "_comment"       : "define port for local server",
+    "PORT"           : "3000",
 
     "livereload"     : false,
-    "_comment"       : "run livereload",
 
     "source"         : "source",
-    "_comment"       : "source folder",
 
     "dest"           : "build",
-    "_comment"       : "folder of destination",
 
     "layouts"        : "layouts",
-    "_comment"       : "folder for templates",
 
     "temp"           : ".tmp",
-    "_comment"       : "folder for temporary files",
 
     "blockSrc" 	     : "blocks",
-    "_comment"       : "path to source folder with blocks",
 
     "cssSrc"   	     : "css",
-    "_comment"       : "path to source folder with common styles",
 
     "jsSrc"    	     : "js",
-    "_comment"       : "path to source folder with javascript files",
 
     "componentsSrc"  : "components",
-    "_comment"       : "path to source folder with bower components",
 
     "imgSrc"         : "img",
-    "_comment"       : "path to source folder with images",
 
     "fontsSrc"       : "fonts",
-    "_comment"       : "path to source folder with fonts",
 
     "cssDest"  	     : "css",
-    "_comment"       : "build folder for css",
 
     "jsDest"   	     : "js",
-    "_comment"       : "build folder for javascript",
 
     "componentsDest" : "components",
-    "_comment"       : "build folder for bower components",
 
     "imgDest"        : "img",
-    "_comment"       : "build folder for images",
 
     "fontsDest"      : "fonts",
-    "_comment"       : "build folder for fonts",
 
     "data"     	     : "data",
-    "_comment"       : "folder with data files",
 
     "linenos"        : false,
-    "_comment"       : "specifies if the generated CSS file should contain comments indicating the corresponding stylus line",
 
-    "browserSupport" : ["last 2 version", "ie 8", "ie9"],
-    "_comment"       : "specify browsers actual for your project (https   ://github.com/ai/autoprefixer#browsers)"
+    "browserSupport" : ["last 2 version", "ie 8", "ie9"]
 }
